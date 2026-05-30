@@ -5,7 +5,7 @@ import { getProducts, getProductById } from "../api/productApi";
 import { toast } from "react-hot-toast";
 import { useCart } from "../context/CartContext";
 
-const IMAGE_BASE = "http://localhost:8081";
+const IMAGE_BASE = "http://localhost:8000";
 const FALLBACK = "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=600&q=80";
 
 function getImg(product) {
@@ -42,6 +42,7 @@ export default function ProductCompare() {
         console.log("PRODUCT RESPONSE:", r.data);
 
         const products =
+          r.data?.products ||
           r.data?.content ||
           r.data?.data?.content ||
           r.data?.data ||

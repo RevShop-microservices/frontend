@@ -4,7 +4,7 @@ import { Trash2, Plus, Minus, ShoppingBag, ArrowRight } from "lucide-react";
 import { AuthContext } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
 
-const IMAGE_BASE = "http://localhost:8081";
+const IMAGE_BASE = "http://localhost:8000";
 const FALLBACK = "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=200&q=80";
 
 export default function Cart() {

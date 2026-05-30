@@ -35,8 +35,9 @@ function App() {
   useEffect(() => {
     if (!user?.userId) return;
 
+    const wsUrl = (import.meta.env.VITE_API_URL || "http://localhost:8000/api").replace("/api", "/ws");
     const client = new Client({
-      webSocketFactory: () => new SockJS("http://localhost:8081/ws"),
+      webSocketFactory: () => new SockJS(wsUrl),
       onConnect: () => {
         client.subscribe(`/user/${user.userId}/queue/notifications`, (message) => {
           if (message.body) {
